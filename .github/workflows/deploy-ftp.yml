@@ -34,6 +34,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           password: ${{ secrets.FTP_PASSWORD }}
           username: ${{ secrets.FTP_USERNAME }}
+          passive: true
+          maxConcurrentTransfers: 1
           local-dir: ./dist/
           server-dir: ./public_html/admin/
           exclude: |
