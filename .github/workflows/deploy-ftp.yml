@@ -11,7 +11,7 @@ jobs:
   deploy:
     name: Build and Deploy to FTP
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,8 +19,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -35,10 +35,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           username: ${{ secrets.FTP_USERNAME }}
           local-dir: ./dist/
-          server-dir: ./public_html/
+          server-dir: ./public_html/admin/
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             **/.DS_Store
-
